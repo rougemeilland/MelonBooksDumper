@@ -53,9 +53,12 @@ string BrowseFolder(const char* initialPath)
 	return "";
 }
 
-string CurrentPath() {
+string GetBasePath() {
 	TCHAR NPath[MAX_PATH];
-	GetCurrentDirectory(MAX_PATH, NPath);
+	GetModuleFileName(NULL, NPath, sizeof(NPath) / sizeof(NPath[0]));
+	char* tail = strrchr(NPath, '\\');
+	if (tail != NULL)
+		*tail = '\0';
 	return NPath;
 }
 
