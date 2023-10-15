@@ -23,13 +23,14 @@ static int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPAR
 	return 0;
 }
 
-string BrowseFolder()
+string BrowseFolder(const char* initialPath)
 {
 	TCHAR path[MAX_PATH];
 
 	BROWSEINFO bi = { 0 };
 	bi.lpszTitle = ("Browse for save folder...");
 	bi.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
+	bi.lParam = (LPARAM)initialPath;
 	bi.lpfn = BrowseCallbackProc;
 
 	LPITEMIDLIST pidl = SHBrowseForFolder(&bi);
