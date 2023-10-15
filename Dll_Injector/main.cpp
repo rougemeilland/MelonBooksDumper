@@ -12,7 +12,7 @@ int main(int argc, const char *argv[])
 	if (path == "")return EXIT_SUCCESS;
 	set_global_path(path);
 
-	InjectDLL(getProcID(PROCESS_NAME), CurrentPath()+"\\"+DLL_NAME);
+	InjectDLL(getProcID(PROCESS_NAME), GetBasePath()+"\\"+DLL_NAME);
 	Sleep(1000);
 	std::cout << "Exiting..." << endl;
 	return EXIT_SUCCESS;
