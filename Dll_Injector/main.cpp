@@ -2,7 +2,6 @@
 #include"injector.h"
 #include <stdlib.h>
 #include <iostream>
-#include "interprocess.h"
 
 #define PROCESS_NAME "melonbooksviewer.exe"
 #define DLL_NAME "MelonDumper.dll"
